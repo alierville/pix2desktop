@@ -44,8 +44,8 @@ export default class Qr extends React.Component<{}, State> {
     header(addH3 = false) {
         return (
             <header>
-                <h1>Send pix with iphone (desktop) <label className="label label-info">{this.state.status}</label></h1>
-                {addH3 ? <h3>Scan QR code in order to sync you mobile device </h3> : null}
+                <h1>Send pix with your mobile device <label className="label label-info">{this.state.status}</label></h1>
+                {addH3 ? <h3>Scan QR code in order to sync you mobile device to this page</h3> : null}
                 <hr/>
             </header>
         )

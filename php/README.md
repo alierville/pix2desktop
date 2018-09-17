@@ -1,5 +1,5 @@
 # API
-<p>It is in charge of generating QR code, receiving uploade image (base64 encoded) and send some message to node by using PUB/SUB channek fron redis</p>
+<p>It is in charge of generating QR code, receiving uploaded images (base64 encoded) and send some messages to node by using PUB/SUB channek fron redis</p>
 
 ## Deps
 Install Nging server

@@ -131,7 +131,7 @@ export default class Upload extends React.Component<Props, State> {
 
     render() {
         return <div className="upload">
-            <h1>Taking picture (smartphone) {(this.state.uploadStatus === 'error') ?
+            <h1>Taking picture (mobile device) {(this.state.uploadStatus === 'error') ?
                 <span
                     className="label label-warning">Something wrong occurred with the uploaded file</span>
                 : null}

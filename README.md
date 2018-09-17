@@ -1,5 +1,5 @@
 # pix2desktop
-Sync Desktop to Mobile to send picture from it
+Sync Desktop to mobile device to send picture from it
 
 <p>
 The main idea is to sync a mobile device to a desktop by scaning a QR.
@@ -8,8 +8,8 @@ The main idea is to sync a mobile device to a desktop by scaning a QR.
 <p>
 
 <p>
-This is a simple boiler plate. The PHP part is not even necessary but in current system there is a lot of PHP or other Backend oustide the node scope.
-<br>This way we can show how interact with node using a redis PUB/SUB channel
+This is a simple boiler plate. The PHP part is not even necessary.
+<br>We use this to show how we can interact with node using a redis PUB/SUB channel
 </p>
 
 Refer to the README.md from each parts (php, node and fend) for installation.
