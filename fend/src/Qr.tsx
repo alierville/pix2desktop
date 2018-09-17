@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as v4 from 'uuid/v4';
+import v4 = require('uuid/v4'); // TS style
 import {socket} from './socket';
 
 interface State {
@@ -35,7 +35,7 @@ export default class Qr extends React.Component<{}, State> {
     }
 
     componentWillUnmount() {
-        // destroy the unique ID from node server
+        // Destroy the unique ID from node server
         if (this.state.uniqueID !== undefined) {
             socket.emit('onRmUniqueID', {uniqueID: this.state.uniqueID})
         }

@@ -15,7 +15,6 @@ function removeSocketIDIDFromClients(socketID) {
     console.log(`Closed socket for ${socketID} entry removed from map`);
 }
 
-
 // Starting websocket server side
 io.on('connection', (socket) => {
     console.log(`new socket for ${socket.id}`);

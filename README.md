@@ -4,7 +4,7 @@ Sync Desktop to Mobile to send picture from it
 <p>
 The main idea is to sync a mobile device to a desktop by scaning a QR.
 <br>Then we are able to send a picture from the mobile to the desktop session.
-<br>It avoids the fastidous Take a pix + "send an email" then upload it from the desktop form. 
+<br>It avoids the fastidious Take a pix + "send an email" then upload it from the desktop form. 
 <p>
 
 <p>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './App.css';
 import Upload from './Upload';
 import Qr from './Qr';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";

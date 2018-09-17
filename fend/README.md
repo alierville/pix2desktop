@@ -7,6 +7,6 @@ A any moment both pages display somes messages received by sockets regarding syn
 <code>npm install</code>
 <code>REACT_APP_API=http://pix2desktop.backend.local npm start</code>
 
-this will start the fend app. It will listen on port 80
+this will start the fend app. It will listen on port 3000
 
 Note that we edit /etc/host to relate the API to the domain http://pix2desktop.backend.local
