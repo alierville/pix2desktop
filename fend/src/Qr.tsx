@@ -5,7 +5,7 @@ import {socket} from './socket';
 interface State {
     uniqueID?: string
     status?: 'sync' | 'image_received',
-    image?: string
+    image?: string | undefined
 }
 
 export default class Qr extends React.Component<{}, State> {
@@ -42,19 +42,29 @@ export default class Qr extends React.Component<{}, State> {
             socket.emit('onRmUniqueID', {uniqueID: this.state.uniqueID})
     }
 
+    header(addH3 = false) {
+        return (
+            <header>
+                <h1>Send pix with iphone (desktop) <label className="label label-info">{this.state.status}</label></h1>
+                {addH3 ? <h3>Scan QR code in order to sync you mobile device </h3> : null}
+                <hr/>
+            </header>
+        )
+    }
+
     public render() {
         if (!this.state.status) {
             return (
                 <div className="Qr">
+                    {this.header(true)}
                     {(this.state.uniqueID !== undefined) ?
                         <img src={`http://pix2desktop.backend.local/qr/${this.state.uniqueID}`}/> : null}
-                    Please scan this QR code in order to sync you mobile device
                 </div>
             );
         } else {
             return (
                 <div>
-                    {this.state.status}
+                    {this.header()}
                     {(this.state.image !== undefined) ? <img srcSet={this.state.image}/> : null}
                 </div>
             )

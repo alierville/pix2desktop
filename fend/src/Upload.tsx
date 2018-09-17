@@ -1,6 +1,7 @@
 import * as React from "react";
-import axios from 'axios';
 import {socket} from './socket';
+import axios from 'axios';
+import loader from './loader.svg';
 
 interface State {
     uploadStatus: 'idle' | 'progress' | 'error' | 'success'
@@ -129,27 +130,27 @@ export default class Upload extends React.Component<Props, State> {
 
     render() {
         return <div className="upload">
-            <div className="upload-form">
-                {(this.state.uploadStatus === 'progress') ?
-                    <label className="upload-form-loader">
-                        <img src="/img/loader.svg"/>
-                    </label>
-                    :
-                    <label className="upload-form-button">
-                        <input type="file" capture accept="image/*;capture=camera"
-                               onChange={(e) => this.uploadFile(e)}/>
-                    </label>
-                }
-                {(this.state.uploadStatus === 'error') ?
-                    <span
-                        className="upload-form-error">Something wrong occurred with the uploaded file</span>
-                    : null}
+            <h1>Taking picture (smartphone) {(this.state.uploadStatus === 'error') ?
+                <span
+                    className="label label-warning">Something wrong occurred with the uploaded file</span>
+                : null}
 
                 {(this.state.uploadStatus === 'success') ?
                     <span
-                        className="upload-form-error">done</span>
-                    : null}
-                <span className="upload-form-description">Please select any image</span>
+                        className="label label-success">Done</span>
+                    : null}</h1>
+            <hr/>
+            <div className="upload-form">
+                {(this.state.uploadStatus === 'progress') ?
+                    <label className="upload-form-loader">
+                        <img src={loader}/>
+                    </label>
+                    :
+                    <span className="btn btn-default btn-file">
+                        <input type="file" capture accept="image/*;capture=camera" onChange={(e) => this.uploadFile(e)} />
+                        Click here
+                    </span>
+                }
             </div>
         </div>
     }
