@@ -57,7 +57,7 @@ export default class Qr extends React.Component<{}, State> {
                 <div className="Qr">
                     {this.header(true)}
                     {(this.state.uniqueID !== undefined) ?
-                        <img src={`http://pix2desktop.backend.local/qr/${this.state.uniqueID}`}/> : null}
+                        <img src={`${process.env.REACT_APP_API}/qr/${this.state.uniqueID}`}/> : null}
                 </div>
             );
         } else {
