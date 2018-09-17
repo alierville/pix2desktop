@@ -23,8 +23,6 @@ export default class Upload extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-        console.log('asdsad',process.env.REACT_APP_SECRET_CODE);
-
         // Push to node that we reached the upload page
         socket.emit('onEnterUpload', {uniqueID: this.props.uniqueID})
     }
