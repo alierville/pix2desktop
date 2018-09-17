@@ -68,7 +68,7 @@ class IndexController implements ControllerProviderInterface
         $renderer->setWidth(500);
         $writer = new Writer($renderer);
 
-        return new Response($writer->writeString('http://pix2desktop.backend.local:3000/upload/' . $id), 200, ['Content-Type' => 'image/png']);
+        return new Response($writer->writeString( $app['config']['api_url'] . 'upload/' . $id), 200, ['Content-Type' => 'image/png']);
     }
 
     public function uploadAction(Request $request, Application $app)
