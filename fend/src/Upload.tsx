@@ -112,7 +112,7 @@ export default class Upload extends React.Component<Props, State> {
         formData.append('uniqueID', this.props.uniqueID);
 
         try {
-            const response = await axios.post( process.env.REACT_APP_API +  '/upload', formData);
+            const response = await axios.post(process.env.REACT_APP_API + '/upload', formData);
             this.parseResult(response.data);
         } catch (err) {
             console.log(err);

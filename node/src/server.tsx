@@ -1,13 +1,12 @@
 import * as socket from 'socket.io';
 import * as redis from 'redis';
 
-
 const io = socket(3333);
 
-//will store a map between unique key and socket id
+// Will store matches between unique key and socket id
 const clients = {};
 
-//Clean Clients
+// Clean Clients
 function removeSocketIDIDFromClients(socketID) {
     for (var f in clients)
         if (clients[f] == socketID)
@@ -17,7 +16,7 @@ function removeSocketIDIDFromClients(socketID) {
 }
 
 
-//Starting websocket server side
+// Starting websocket server side
 io.on('connection', (socket) => {
     console.log(`new socket for ${socket.id}`);
 
@@ -36,7 +35,7 @@ io.on('connection', (socket) => {
     })
 });
 
-//Handling posted action received through redis channel
+// Handling posted action received through redis channel
 const redisClient = redis.createClient();
 redisClient.on('message', (channel, message) => {
     let mess = JSON.parse(message);
@@ -45,5 +44,4 @@ redisClient.on('message', (channel, message) => {
 
     console.log(`Received the following message from ${channel}: ${mess.uniqueID}`);
 });
-
 redisClient.subscribe('pix2desktop');
