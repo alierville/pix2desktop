@@ -20,7 +20,7 @@ export default class Upload extends React.Component<Props, State> {
             uploadStatus: 'idle'
         }
 
-        this.uploadFile.bind(this);
+        this.uploadFile = this.uploadFile.bind(this);
     }
 
     componentDidMount() {
@@ -30,7 +30,7 @@ export default class Upload extends React.Component<Props, State> {
 
 
     uploadFile(e: any) {
-        let file = e.target.files[0];
+        const file = e.target.files[0];
         if (file) {
             if (/^image\//i.test(file.type)) {
                 this.setState({
@@ -91,8 +91,9 @@ export default class Upload extends React.Component<Props, State> {
 
 
             const context = canvas.getContext('2d');
-            if (context)
+            if (context) {
                 context.drawImage(image, 0, 0, newWidth, newHeight);
+            }
             dataURL = canvas.toDataURL(fileType);
 
             this.sendFile(dataURL);
@@ -106,12 +107,12 @@ export default class Upload extends React.Component<Props, State> {
     }
 
     async sendFile(fileData: any) {
-        var formData = new FormData();
+        const formData = new FormData();
         formData.append('image', fileData);
         formData.append('uniqueID', this.props.uniqueID);
 
         try {
-            let response = await axios.post('http://pix2desktop.backend.local/upload', formData);
+            const response = await axios.post( process.env.REACT_APP_API +  '/upload', formData);
             this.parseResult(response.data);
         } catch (err) {
             console.log(err);
@@ -147,7 +148,8 @@ export default class Upload extends React.Component<Props, State> {
                     </label>
                     :
                     <span className="btn btn-default btn-file">
-                        <input type="file" capture accept="image/*;capture=camera" onChange={(e) => this.uploadFile(e)} />
+                        <input type="file" capture={true} accept="image/*;capture=camera"
+                               onChange={this.uploadFile}/>
                         Click here
                     </span>
                 }

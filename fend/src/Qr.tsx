@@ -16,30 +16,29 @@ export default class Qr extends React.Component<{}, State> {
     }
 
     componentDidMount() {
-        // generate unique ID
+        // Generate unique ID
         const uniqueID = v4();
 
-        // relate the unique ID to the current socket session
-        socket.emit('onRelUniqueID', {uniqueID: uniqueID})
+        // Relate the unique ID to the current socket session
+        socket.emit('onRelUniqueID', {uniqueID})
 
-        //update set to force rendering
-        this.setState({
-            uniqueID: uniqueID
-        });
+        // Update set to force rendering
+        this.setState({uniqueID});
 
         // Update the current flow status
         socket.on('onStatusChanged', (mess: any) => {
-            this, this.setState({
-                status: mess.status,
-                image: mess.image || undefined
+            this.setState({
+                image: mess.image || undefined,
+                status: mess.status
             })
         })
     }
 
     componentWillUnmount() {
         // destroy the unique ID from node server
-        if (this.state.uniqueID !== undefined)
+        if (this.state.uniqueID !== undefined) {
             socket.emit('onRmUniqueID', {uniqueID: this.state.uniqueID})
+        }
     }
 
     header(addH3 = false) {
@@ -52,7 +51,7 @@ export default class Qr extends React.Component<{}, State> {
         )
     }
 
-    public render() {
+    render() {
         if (!this.state.status) {
             return (
                 <div className="Qr">

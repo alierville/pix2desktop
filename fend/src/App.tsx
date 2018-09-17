@@ -8,13 +8,13 @@ import Header from './Header';
 const UploadComp = ({match}: any) => <Upload uniqueID={match.params.uniqueID}/>;
 
 class App extends React.Component {
-    public render() {
+    render() {
         return (
             <div>
                 <Header/>
                 <Router>
                     <div className="App container">
-                        <Route exact path="/" component={Qr}/>
+                        <Route exact={true} path="/" component={Qr}/>
                         <Route path="/upload/:uniqueID" component={UploadComp}/>
                     </div>
                 </Router>
