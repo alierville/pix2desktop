@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "es2017",
+      "DOM"
+    ],
+    "outDir": "dist"
+  },
+  "include": [
+    "src"
+  ]
+}

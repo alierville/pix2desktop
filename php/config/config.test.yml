@@ -1,0 +1,6 @@
+debug: true
+
+predis:
+  parameters: tcp://127.0.0.1:6379/
+  options:
+    profile: 2.2

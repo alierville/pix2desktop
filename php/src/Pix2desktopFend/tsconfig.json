@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es6",
+      "es2017.object",
+      "es6",
+      "dom.iterable",
+      "es2015.promise",
+      "es2015.symbol",
+      "es2016.array.include"
+    ],
+    "moduleResolution": "node",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "noEmit": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "downlevelIteration": true
+  },
+  "exclude": [
+    "../node_modules"
+  ]
+}

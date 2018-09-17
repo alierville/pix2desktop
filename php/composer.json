@@ -1,0 +1,22 @@
+{
+  "name": "antoine/pix2desktop",
+  "description": "backend",
+  "require": {
+    "silex/silex": "^2.0",
+    "predis/predis": "^1.1",
+    "symfony/yaml": "^3.4",
+    "predis/service-provider": "^2.0",
+    "bacon/bacon-qr-code": "^1.0"
+  },
+  "authors": [
+    {
+      "name": "Antoine Lierville",
+      "email": "antoine@lierville.com"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "Pix2desktop": "src/"
+    }
+  }
+}
